@@ -1,0 +1,2 @@
+module load intel/15.0.6 R/3.2.3
+
