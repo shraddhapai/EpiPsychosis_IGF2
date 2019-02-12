@@ -30,13 +30,15 @@ Location: `CaseControlEpic/` folder
 * Supplementary Figure 8: Case/control IGF2 methylation plotted with lifestyle variables: `relateIGF2_confounds.R`
 
 ## meQTL analysis
+* Pre-imputation processing:  `preimpute_check.sh`, `vcf4impute.sh`
 * Extracts genotypes in DMP window: `CaseControlSNP/prepareDMPwins.R`, `CaseControlSNP/getSNPsInRanges.sh`
+* meQTL analysis: Supplementary Table 8 `meQTL_useLMER.R`
+* Figure 1c: `meQTL_plotCis.R`
 
 # Case-Control genotyping
 Code in `CaseControlSNP/`
 * Quality control: `fixPlink_coords.R`, `plinkQC.sh`
 * Compute lambda: `computeLambda.R` 
-* Pre-imputation processing:  `preimpute_check.sh`, `vcf4impute.sh`
 
 # Case-Control targeted bisulfite sequencing
 Code in `SeqCap1/` and `SeqCap2/`
@@ -61,9 +63,9 @@ Code in `CaseControlRNA/`
 # Mouse transcriptomes
 Code in `MouseRNA/`
 * Processing: `../CaseControlRNA/SCZ_RNAseq.bash`
-* Differential expression: Figure 4a. `diffEx.R`
-* Pathway analysis: Figure 4b. `runPathway_FC.R` and `runPathway_STR.R`. Enrichment map created in Cytoscape. 
+* Differential expression: Figure 4a, Supplementary Figure 14. `diffEx.R`
+* Pathway analysis: Figure 4b, Supplementary Figure 15. `runPathway_FC.R` and `runPathway_STR.R`. Enrichment map created in Cytoscape. 
 
 # Mouse Synaptosomes
-
+* Pathway analysis: Supplementary Figure 17. `diffEx_testAllProt.R`
   
