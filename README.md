@@ -39,6 +39,16 @@ Code in `CaseControlSNP/`
 * Pre-imputation processing:  `preimpute_check.sh`, `vcf4impute.sh`
 
 # Case-Control targeted bisulfite sequencing
+Code in `SeqCap1/` and `SeqCap2/`
+Processing pipeline followed manufacturer's instructions from this online document: http://netdocs.roche.com/DDM/Effective/07187009001_RNG_SeqCap-EZ_TchNote_Eval-data_v2.1.pdf
+* Processing: 
+  * QC of fastq files: `fastQC_batch.R`
+  * Trim reads: `trim.sh`
+  * Count reads: `countreads.sh`
+  * Align reads: `align.sh`
+  * Post-alignment processing: `postalign_runner.sh` > `postalign.sh`
+* Validation of IGF2 locus: Figure 2c,d: `IGF2_view.R`
+* Correlate IGF2 methylation with EPIC microarrays: Supplementary Figure 9: `corrEPIC_IGF2.R`
 
 # Case-Control transcriptomes
 Code in `CaseControlRNA/`
@@ -48,7 +58,12 @@ Code in `CaseControlRNA/`
 * Correlation of expression with BrainSpan gene sets: Supplementary Figure 7b: `diffEx_annotate.R`
 * Comparing genotype with SNP arrays: `RNAseq_callVar.sh`, `makePlink.sh`, `matchGeno.R`
 
+# Mouse transcriptomes
+Code in `MouseRNA/`
+* Processing: `../CaseControlRNA/SCZ_RNAseq.bash`
+* Differential expression: Figure 4a. `diffEx.R`
+* Pathway analysis: Figure 4b. `runPathway_FC.R` and `runPathway_STR.R`. Enrichment map created in Cytoscape. 
 
-
+# Mouse Synaptosomes
 
   
