@@ -22,18 +22,31 @@ Location: `CaseControlEpic/` folder
   * IGF2 confirmation with CEU males: `dmp_getMeanBetaDiff_CEUmale.R`
 * Volcano plot in Figure 1A: `volcanoPlot.R`
 * Pathway analysis and Figure 1B: Call to `dmp_pathwayORA` within `callDMPs.R`; Enrichment Map created in [Cytoscape](https://cytoscape.org/).
+* Compare genotypes with genetic data: Supplementary Fiure 5a: `getEPICsnpgeno.R` and `match_genoEPIC.R`
 
 ## Methylation at IGF2 locus
 * Figure 2a: `targetView.R`
 * Figure 2b: `dmp_plotGroupMeans.R`
 * Supplementary Figure 8: Case/control IGF2 methylation plotted with lifestyle variables: `relateIGF2_confounds.R`
 
+## meQTL analysis
+* Extracts genotypes in DMP window: `CaseControlSNP/prepareDMPwins.R`, `CaseControlSNP/getSNPsInRanges.sh`
+
 # Case-Control genotyping
+Code in `CaseControlSNP/`
+* Quality control: `fixPlink_coords.R`, `plinkQC.sh`
+* Compute lambda: `computeLambda.R` 
+* Pre-imputation processing:  `preimpute_check.sh`, `vcf4impute.sh`
 
 # Case-Control targeted bisulfite sequencing
 
 # Case-Control transcriptomes
-
+Code in `CaseControlRNA/`
+* Processing: `SCZ_RNAseq.bash`
+* Differential expression and pathway analysis: `diffEx_simple.R`. Enrichment Map created in Cytoscape.
+* Volcano plot:Supplementary Figure 7a: `volcanoPlot.R`
+* Correlation of expression with BrainSpan gene sets: Supplementary Figure 7b: `diffEx_annotate.R`
+* Comparing genotype with SNP arrays: `RNAseq_callVar.sh`, `makePlink.sh`, `matchGeno.R`
 
 
 
