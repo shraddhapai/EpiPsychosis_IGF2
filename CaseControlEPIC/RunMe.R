@@ -112,7 +112,7 @@ tryCatch({
 
 	# SVA and ComBaT batch correction
 	cat("* Running SVA\n")
-	#x <- correctBatch(MSet.genome,runCombat=FALSE)
+	x <- correctBatch(MSet.genome,runCombat=FALSE)
 	# Peter Langfelder recommends not to run ComBaT to correct batch
 	# if running lmFit:
 	# see https://support.bioconductor.org/p/80685/

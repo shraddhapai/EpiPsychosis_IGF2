@@ -7,11 +7,10 @@ require(IlluminaEPICtools)
 source("dmpFinder_DX.R"); 
 #source("plotProbes.R"); 
 
-#rootDir <- "/Users/shraddhapai/Documents/Research/Epigenetics/NARSAD2014/output_files/CaseControlEPIC/SUS19398"
 rootDir <- "/home/shraddhapai/Epigenetics/NARSAD/output_files/CaseControlEPIC/SUS19398"
 cleanDat <- sprintf("%s/preprocessing/CaseControlEPIC_CLEAN_171127.Rdata",
 	rootDir)
-#snpPCFile <- "/Users/shraddhapai/Documents/Research/Epigenetics/NARSAD2014/output_files/CaseControlSNP/plinkQC/SUS19399.hg19.sorted_-clean_PCA.eigenvec"
+snpPCFile <- "/Users/shraddhapai/Documents/Research/Epigenetics/NARSAD2014/output_files/CaseControlSNP/plinkQC/SUS19399.hg19.sorted_-clean_PCA.eigenvec"
 annoFiles 	<- read.delim("Annotations.txt",sep="\t",h=T,as.is=T)
 updatedSampKey <- "/home/shraddhapai/Epigenetics/NARSAD/input_files/NARSAD_sampleKey_171129.txt"
 
@@ -116,8 +115,6 @@ for (nm in "DX") {
 	logFile <- sprintf("%s/dmp%s_pathway_stats_p%1.3f_%s.txt",outDir,nm,
 		 pThresh,format(Sys.time(),"%y%m%d.%H%M"))
 
-cat("got here\n")
-
 	sink(logFile,split=TRUE)
 	tryCatch({
 		pathStats <- dmp_pathwayORA(MSet.genome,dmp,gene_GR,thresh=pThresh,
@@ -180,14 +177,12 @@ cat("got here\n")
 
 	### write IGF2-centered beta values
 	
-	#dmp_plotLocalBeta(MSet.genome,"cg07096953",winWidth=2000,
-	#			writeMelted=TRUE, outPref=sub(".txt","",dmpFiles[[nm]])) 
+	dmp_plotLocalBeta(MSet.genome,"cg07096953",winWidth=2000,
+				writeMelted=TRUE, outPref=sub(".txt","",dmpFiles[[nm]])) 
 	pd <- pData(noTechReps)
 	betas <- getBeta(noTechReps[c("cg07096953","cg02613624","cg26401390")])
 	tmpFile=sprintf("%s/IGF2_probes_sampleDat.txt",dirname(dmpFiles[[nm]]))
 	plotProbes_showSamp(betas,pd,tmpFile)
-	####dmp_plotLocalBeta(MSet.genome,"cg07096953",winWidth=2000) 
-	####rownames(dmp)[which(dmp$qval <0.05)])
 
 	cur_loc$NAME <- rownames(cur_loc)
 	x <- merge(x=cur_loc,y=dmp,by="NAME")

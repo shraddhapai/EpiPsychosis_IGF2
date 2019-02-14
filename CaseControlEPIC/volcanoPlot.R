@@ -1,7 +1,6 @@
 # volcano plot for methylation analysis
 rm(list=ls())
 require(minfi)
-#dmpFile <- "/Users/shraddhapai/Documents/Research/Epigenetics/NARSAD2014/output_files/CaseControlEPIC/SUS19398/dmp_DX_QTL/agesexslide_PC12/161221/dmp..dmp_DXcase.topTable.161221.txt"
 dmpFile <- "/home/shraddhapai/Epigenetics/NARSAD/output_files/CaseControlEPIC/SUS19398/dmp_DX_QTL/agesexPMI_PC12_171129/dmp..dmp_DXcase.topTable.171129.txt"
 combPFile <- "/home/shraddhapai/Epigenetics/NARSAD/output_files/CaseControlEPIC/SUS19398/dmp_DX_QTL/comb-p_171204/out_agesexPMI_PC12_171129.regions-p.bed"
 resFile <- "/home/shraddhapai/Epigenetics/NARSAD/output_files/CaseControlEPIC/SUS19398/preprocessing/CaseControlEPIC_CLEAN_171127.Rdata"
@@ -24,10 +23,7 @@ ggd.qqplot = function(pvector, main=NULL, ...) {
 }
 
 # -----------------------------------------
-
-
 outDir <- dirname(dmpFile)
-
 
 combP <- read.delim(combPFile,sep="\t",h=T,as.is=T)
 combP <- subset(combP, z_sidak_p < 0.05)
@@ -43,8 +39,6 @@ redP <- names(redP)
 
 dmp$P <- -log10(dmp$P.Value)
 
-# outdated
-# idx <- which(dmp$adj.P.Val < 0.05 & rownames(dmp) %in% probeIDs)
 idx <- which(rownames(dmp) %in% redP)
 dmp2 <- dmp[idx,]
 dmp2$names <- rownames(dmp2)
@@ -64,13 +58,6 @@ p <- p + geom_point(data=dmp3,aes(x=logFC,y=P),colour="blue",size=2.5)
 p <- p + theme(text=element_text(size=24),axis.text=element_text(size=24))
 p <- p + ggtitle(sprintf("Psychosis methylation changes (N=%s probes)",
 		prettyNum(nrow(dmp),big.mark=",")))
-#p <- p +  ggrepel::geom_text_repel(
-#    data = dmp2,
-#    aes(label = names),
-#    size = 5,
-#    box.padding = unit(0.35, "lines"),
-#    point.padding = unit(0.3, "lines")
-#  )
 p <- p + theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
 
 cat("* Writing to file\n")

@@ -1,7 +1,6 @@
 #' convert dmr results to bed file for comb-p
 #' compute bacon-adjusted pvalues 
 
-#dmrFile <- "/home/shraddhapai/Epigenetics/NARSAD/output_files/CaseControlEPIC/SUS19398/dmp_DX_QTL/age_PMITRUE_CEUmale_PC12_181022/dmp..dmp_DXcase.topTable.181022.txt"
 dmrFile <- "/home/shraddhapai/Epigenetics/NARSAD/output_files/CaseControlEPIC/SUS19398/dmp_DX_QTL/agesexPMI_PC12_171129/dmp..dmp_DXcase.topTable.171129.txt"
 datFile <- "/home/shraddhapai/Epigenetics/NARSAD/output_files/CaseControlEPIC/SUS19398/preprocessing/CaseControlEPIC_CLEAN_171127.Rdata"
 

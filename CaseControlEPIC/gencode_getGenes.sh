@@ -12,4 +12,3 @@ echo "merging"
 paste ${inFile}.chroms ${inFile}.geneids > ${inFile}.geneids_chroms.txt
 
 echo "cleanup"
-#rm ${inFile}.genes ${inFile}.chroms ${inFile}.geneids

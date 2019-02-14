@@ -1,12 +1,10 @@
-# relate IGF2 methylation to brain weight.
+# relate IGF2 methylation to lifestyle variables (smoking, medication, brain wt)
 rm(list=ls())
 
 require(ggplot2)
 
 inFile <- "/Users/shraddhapai/Documents/Research/Epigenetics/NARSAD2014/output_files/CaseControlEPIC/SUS19398/preprocessing/CaseControlEPIC_CLEAN_171127.Rdata"
-
 outDir <- "/Users/shraddhapai/Documents/Research/Epigenetics/NARSAD2014/output_files/CaseControlEPIC/SUS19398/dmp_DX_QTL/agesexPMI_PC12_171129"
-
 phenoFile <- "/Users/shraddhapai/Documents/Research/Epigenetics/NARSAD2014/input_files/NARSAD_sampleKey_allMeds_180103.txt"
 
 p2get <- c("cg07096953","cg02613624","cg22956483")

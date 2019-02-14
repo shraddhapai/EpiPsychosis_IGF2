@@ -88,7 +88,6 @@ sink(logFile,split=TRUE)
 
 	# exclude probes that fail detection filter
 	cat("* Saving probes that failed detection\n")
-###	load(sprintf("%s/rawExp_%s.Rdata",outDir,dt))
 	detP		<-detectionP(epicData)
 	failed.01<- detP>0.01
 	save(failed.01, file =sprintf("%s/failedProbes_%s.Rdata",outDir,dt))
@@ -128,7 +127,6 @@ cat("\n* MDS plot\n")
 			mdsPlot(betas, numPositions=k,
 				sampGroups=pd[,g],
 				sampNames=pd$Sample_Name,
-				#xlim=c(-20,20),ylim=c(-10,10),
 				main=sprintf("MDS on most variable %i pos\ncoloured by %s",
 					k,g))
 		}
@@ -194,7 +192,6 @@ tryCatch({
 			mdsPlot(betas, numPositions=k,
 				sampGroups=pd[,g],
 				sampNames=pd$Sample_Name,
-				#xlim=c(-20,20),ylim=c(-10,10),
 				main=sprintf("MDS on most variable %i pos\ncoloured by %s",
 					k,g))
 		}

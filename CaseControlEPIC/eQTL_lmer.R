@@ -85,12 +85,6 @@ if (all.equal(cvrt$Sample_Name, colnames(M))!=TRUE) {
 	cat("samp names for cvrt and M don't match\n"); browser();
 }
 
-# old -- ignoring tech reps now
-###	idx <- grep("-R[23456]",cvrt$Sample_Name)
-###	cat(sprintf("Got %i tech reps\n",length(idx)))
-###	sampName <- sub("-R[123456]","",cvrt$Sample_Name)
-###	cvrt$UqSamp <- factor(sampName)
-###
 
 	cvrt$SEX <- factor(cvrt$SEX)
 	cvrt$DX <- factor(cvrt$DX,levels=c("control","case"))

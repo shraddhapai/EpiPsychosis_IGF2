@@ -1,4 +1,6 @@
 #' for DMPs, gets mean delta beta for the groups for each hit.
+#' CEU males only.
+
 rm(list=ls())
 suppressMessages(suppressWarnings(require(minfi)))
 require(ggplot2)

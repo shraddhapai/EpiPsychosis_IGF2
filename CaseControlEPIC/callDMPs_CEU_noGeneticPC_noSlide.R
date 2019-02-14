@@ -7,7 +7,6 @@ require(IlluminaEPICtools)
 source("dmpFinder_DX.R"); 
 source("plotProbes.R"); 
 
-#rootDir <- "/Users/shraddhapai/Documents/Research/Epigenetics/NARSAD2014/output_files/CaseControlEPIC/SUS19398"
 rootDir <- "/home/shraddhapai/Epigenetics/NARSAD/output_files/CaseControlEPIC/SUS19398"
 cleanDat <- sprintf("%s/preprocessing/CaseControlEPIC_CLEAN_171127.Rdata",
 	rootDir)
@@ -180,15 +179,10 @@ for (nm in names(dmpFiles)[3]) {
 	})
 
 	### write IGF2-centered beta values
-	##warning("you were fixing this function")
-	#dmp_plotLocalBeta(MSet.genome,"cg07096953",winWidth=2000,
-	#			writeMelted=TRUE, outPref=sub(".txt","",dmpFiles[[nm]])) 
 	pd <- pData(noTechReps)
 	betas <- getBeta(noTechReps[c("cg07096953","cg02613624","cg26401390")])
 	tmpFile=sprintf("%s/IGF2_probes_sampleDat.txt",dirname(dmpFiles[[nm]]))
 	plotProbes_showSamp(betas,pd,tmpFile)
-	####dmp_plotLocalBeta(MSet.genome,"cg07096953",winWidth=2000) 
-	####rownames(dmp)[which(dmp$qval <0.05)])
 
 	cur_loc$NAME <- rownames(cur_loc)
 	x <- merge(x=cur_loc,y=dmp,by="NAME")

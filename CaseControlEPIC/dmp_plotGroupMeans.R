@@ -32,26 +32,3 @@ dmp_plotProbes_groups(MSet.genome,group="DIST.DX",baseline_group="control",
 	group2="SEX",selProbes=probeList,plot_nr=2,plot_nc=2)
 dev.off()
 
-####def <- par("mar")
-####par(mfrow=c(4,6),mar=c(1,1,1,1))
-###gp <- matrix(NA, nrow=nrow(betas),ncol=2)
-###for (k in 1:nrow(betas)) {
-###	x1 <- betas[k,which(pd$DX == "case")]
-###	x2 <- betas[k,which(pd$DX == "control")]
-###	gp[k,1] <- mean(x1)
-###	gp[k,2] <- mean(x2)
-####	boxplot(list(case=x1,control=x2),title=rownames(betas)[k],
-####		ylim=c(0,1))
-####	abline(h=0.5,lty=3,col='red')
-###}
-###
-###
-###par(mfrow=c(2,2)) #,mar=c(5,5,3,3))
-###plot(gp[,1],gp[,2],xlab="case",ylab="control",
-###main="mean group %M for top DMPs",col=rgb(0,0,0,0.4))
-###abline(0,1,col='red',lty=3,lwd=2)
-###hist(gp[,2], main="mean control % for DMR")
-###df <- gp[,2]-gp[,1]
-###hist(df,main="diff in group %M")
-
-
