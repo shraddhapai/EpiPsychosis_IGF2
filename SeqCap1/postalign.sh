@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#' Script was manually run section by section, after confirming results from
+#' previous section looked fine.
+
 METHRATIO=/home/shraddhapai/software/bsmap-2.74/methratio.py
 #PICARD=/home/shraddhapai/software/picard.jar
 PICARD=/home/shraddhapai/software/picard-tools/1.98/picard-1.98.jar
@@ -167,9 +170,4 @@ $TABIX -s 1 -b 2 -e 2 -S 1 ${baseF}.methylation_results.txt.gz
 
 echo "Ended post-alignment processing"
 date
-
-### Add later
-###echo "calculate bs efficiency"
-###samDir=`dirname $SAMTOOLS`
-###python $METHRATIO -d $hg38_fa -s $samDir -m 1 -z -i skip -o -c Lambda_J02459.1 ${baseF}.Lambda.methylation_results.txt ${baseF}.CLEAN.bam
 

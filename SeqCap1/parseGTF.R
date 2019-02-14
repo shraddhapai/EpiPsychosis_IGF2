@@ -1,4 +1,5 @@
 #' parse GTF file to return gene definition in table
+#'
 #' @param gFile (char) path to gtf file
 #' @param header (logical) has header row
 #' @return (data.frame) one row per record. chrom. start. end. strand. ENGSID.
@@ -23,5 +24,4 @@ out <- do.call("rbind",out)
 colnames(out) <- c("chr","start","end","strand","gene_id","gene_name")
 out <- as.data.frame(out)
 out
-
 }

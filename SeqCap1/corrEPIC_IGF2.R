@@ -6,9 +6,7 @@ require(minfi)
 minBaseCount <- 10
 epicFile <- "/home/shraddhapai/Epigenetics/NARSAD/output_files/CaseControlEPIC/SUS19398/preprocessing/CaseControlEPIC_CLEAN_171127.Rdata"
 seqCapDir <- "/home/shraddhapai/Epigenetics/NARSAD/output_files/SeqCapEpi/methylation"
-
 outDir <- "/home/shraddhapai/Epigenetics/NARSAD/output_files/SeqCapEpi/DMR"
-
 LIFTOVER <- "/home/shraddhapai/software/kent_utilities/liftOver"
 LO_CHAIN <- "/home/shraddhapai/software/kent_utilities/hg19ToHg38.over.chain.gz"
 
@@ -16,7 +14,6 @@ dt <- format(Sys.Date(),"%y%m%d")
 logFile <- sprintf("%s/CorrIGFextended_EPIC_%s.log",outDir,dt)
 sink(logFile,split=TRUE)
 tryCatch({
-
 # --------------------------------------------------
 # now getting SeqCap data
 
@@ -61,8 +58,6 @@ agg <- aggregate(seqcap_vals$pctM,
 	FUN=mean)
 colnames(agg)[3] <- "pctM"
 seqcap_vals <- agg
-
-
 
 rownames(seqcap_vals) <- NULL
 rm(rec2)
@@ -110,7 +105,6 @@ betas <- cbind(locs,betas)
 betas <- betas[,-(1:3)]
 betas2 <- melt(betas)
 colnames(betas2)[3] <- "Sample_ID"
-
 
 # plot view to confirm how seqcap and epic coordinates align
 # e.g. is one of them off by 1 consistently, rel to other?

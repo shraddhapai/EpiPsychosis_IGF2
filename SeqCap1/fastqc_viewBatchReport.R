@@ -1,6 +1,5 @@
 #' Show fastQC summary results for multiple samples in a 
 #' concise report
-
 #' Function is defined first and code is run at the very bottom.
 
 # --------------------------------------------------------------
@@ -34,7 +33,6 @@ title(sampName)
 
 # --------------------------------------------------------------
 # Work begins
-
 
 #' parse base quality 
 #'

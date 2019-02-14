@@ -22,7 +22,6 @@ tryCatch({
 # must be in hg19
 dmp <- read.delim(dmpFile,sep="\t",h=T,as.is=T)
 dmp <- dmp[which(dmp$z_sidak_p< 0.05 & dmp[,1]=="chr11" & dmp$start < 2154500),]
-#targetGR <- GRanges("chr11",IRanges(2016393,2160000))
 targetGR <- GRanges(dmp[,1],IRanges(dmp[,2],dmp[,3]),
 	name=sprintf("target%i",1:nrow(dmp)))
 
@@ -151,12 +150,6 @@ colnames(agg)[3] <- "avgPctM_SeqCapEPI"
 comb <- merge(x=epic_vals,y=seqcap_vals,by=c("target","Sample_ID"))
 comb <- subset(comb, variable =="pctM")
 comb$Sample_ID <- factor(comb$Sample_ID)
-# mixed effects model
-#fit0 <- lmer(avgM_EPIC~1+(1|Sample_ID),data=comb,REML=TRUE)
-#fit1 <- lmer(avgM_EPIC~1+avgPctM_SeqCapEPI+(1|Sample_ID),data=comb,REML=TRUE)
-#x <- anova(fit1,fit0)
-#cat(sprintf("LME: ANOVA p < %1.2e\n", x[["Pr(>Chisq)"]][2]))
-
 
 comb <- merge(x=epic_vals,y=agg,by=c("target","Sample_ID"))
 comb$DX <- factor(comb$DX,levels=c("case","control"))
