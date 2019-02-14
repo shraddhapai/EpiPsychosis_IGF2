@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#' Post alignment processing code
+#' As per manufacturer's instructions.
+#' Script was run manually section by section, after confirming results from
+#' previously run section looked fine
+
 module load gcc
 module load samtools
 module load java

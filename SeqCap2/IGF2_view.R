@@ -81,7 +81,6 @@ if (all.equal(pheno$New.Code[midx],sampName)!=TRUE) {
 }
 pdf(sprintf("%s/plotDendro_before_%s.pdf",outDir,dt))
 dev.off()
-#plotDendro_clr(na.omit(rgn_meth),pheno[midx],
 
 if (excSamples) {
 	idx <- which(colnames(rgn_meth) %in% c("75pos","92pos","9Redopos"))

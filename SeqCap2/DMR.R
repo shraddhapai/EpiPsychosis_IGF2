@@ -77,15 +77,14 @@ write.table(rgn_meth,file=sprintf("%s/methylation.txt",outDir),sep="\t",col=T,ro
 
 # run hierarchical clustering of case-control loci.
 x2 <- na.omit(rgn_meth)
-###pdf(sprintf("%s/hclust_exc%s_%s.pdf",outDir,excSamples,dt)) 
-###plot(hclust(x,method="average"),
-###	main=sprintf("SeqCap2: %s: %i DMR candidate loci",gpName,nrow(x2)))
-###dev.off()
+pdf(sprintf("%s/hclust_exc%s_%s.pdf",outDir,excSamples,dt)) 
+plot(hclust(x,method="average"),
+	main=sprintf("SeqCap2: %s: %i DMR candidate loci",gpName,nrow(x2)))
+dev.off()
 
 # -------------------
 # colourful hclust plot
 pheno <- read.delim(phenoTechFile,sep="\t",h=T,as.is=T)
-#browser()
 
 colnames(rgn_meth)[which(colnames(rgn_meth)=="95repos")] <- "90-2repos"
 sampName <- sub("Redo","",colnames(rgn_meth))
@@ -152,14 +151,11 @@ cat(sprintf("Subsetting for cell type = %s\n",cellType))
 df <- subset(df, cellType==cellType_in)
 cat(sprintf("%i samples left\n", length(unique(df$ID))))
 
-#if (length(duplicated(df[,c("ID","Var1","cellType")]))>0) {
-#	cat("\tTaking average of technical replicates\n")
 	agg <- aggregate(df$value,by=list(ID=df$ID,
 		Var1=df$Var1),
 		FUN=mean,na.rm=T)
 	colnames(agg)[3] <- "value"
 	df <- agg
-#}
 
 colnames(pheno)[1] <- "ID"
 y <- merge(x=pheno,y=df,by="ID")

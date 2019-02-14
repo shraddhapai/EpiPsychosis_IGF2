@@ -48,20 +48,20 @@ for (samp in fList) {  #loop over samples
 		# get methylation counts related to each target
 		rec <- getRec_GRanges(inFile,gr,verbose=FALSE,numCores=16)
 		names(rec) <- currt[,4]
-###		y <- lapply(rec, function(x) {
-###			if (length(dim(x))<2) return(cbind(C=0,COV=0,pctM=NA))
-###			#if (is.na(x)) return(cbind(C=0,COV=0,pctM=NA))
-###			#else {
-###			cbind(C=sum(x$C_count),COV=sum(x$CT_count),
-###				pctM=1-(sum(x$C_count)/sum(x$CT_count)))}
-###	)
-###			#})
-###		names(y) <- gr$name
-###		z <- data.frame(do.call("rbind",y))
-###		z$pctM <- round(z$pctM,digits=3)
-###		z$target_length <- width(gr)
-###		z$name <- names(y)
-###		rm(y)
+		y <- lapply(rec, function(x) {
+			if (length(dim(x))<2) return(cbind(C=0,COV=0,pctM=NA))
+			#if (is.na(x)) return(cbind(C=0,COV=0,pctM=NA))
+			#else {
+			cbind(C=sum(x$C_count),COV=sum(x$CT_count),
+				pctM=1-(sum(x$C_count)/sum(x$CT_count)))}
+	)
+			#})
+		names(y) <- gr$name
+		z <- data.frame(do.call("rbind",y))
+		z$pctM <- round(z$pctM,digits=3)
+		z$target_length <- width(gr)
+		z$name <- names(y)
+		rm(y)
 
 		# high coverage
 		# get methylation counts related to each target
