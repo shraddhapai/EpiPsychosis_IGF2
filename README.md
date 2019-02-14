@@ -18,8 +18,9 @@ Location: `CaseControlEpic/` folder
 * Array preprocessing QC, normalization, MDS: `processInput.R`
 * Post-processing QC and data exploration, data cleaning, merging with processed genetic data: `RunMe.R` (Supplementary Figure 3,4)
 * Call differentially-methylated probes and plotting results: 
-  * Main result reported in paper (all samples): `callDMPs.R` (Supplementary Figure 6a)
-  * CEU samples: `callDMPs_CEU.R` 
+  * Main result reported in paper (all samples): `callDMPs.R` (Supplementary Figure 6a, Supplementary Table 2)
+  * CEU samples: `callDMPs_CEU.R` (Supplementary Table 3)
+  * comb-p: `combp_new.R`
   * IGF2 confirmation with CEU males: `dmp_getMeanBetaDiff_CEUmale.R`
 * Volcano plot in Figure 1A: `volcanoPlot.R`
 * Pathway analysis and Figure 1B: Call to `dmp_pathwayORA` within `callDMPs.R`; Enrichment Map created in [Cytoscape](https://cytoscape.org/).
@@ -33,7 +34,8 @@ Location: `CaseControlEpic/` folder
 ## meQTL analysis
 * Pre-imputation processing:  `preimpute_check.sh`, `vcf4impute.sh`
 * Extracts genotypes in DMP window: `CaseControlSNP/prepareDMPwins.R`, `CaseControlSNP/getSNPsInRanges.sh`
-* meQTL analysis: Supplementary Table 8 `meQTL_useLMER.R`
+* meQTL analysis: Supplementary Tables 7,8 `meQTL_useLMER.R`
+* meQTL genotype x disease interaction in IGF2 region: Supplementary Table 9: `meQTL_IGF2TH_probes.R`
 * Figure 1c: `meQTL_plotCis.R`
 
 # Case-Control genotyping
@@ -56,7 +58,7 @@ Processing pipeline followed manufacturer's instructions from this online docume
 # Case-Control transcriptomes
 Code in `CaseControlRNA/`
 * Processing: `SCZ_RNAseq.bash`
-* Differential expression and pathway analysis: `diffEx_simple.R`. Enrichment Map created in Cytoscape.
+* Differential expression and pathway analysis: `diffEx_simple.R` (Supplementary Table 5,6). Enrichment Map created in Cytoscape.
 * Volcano plot:Supplementary Figure 7a: `volcanoPlot.R`
 * Correlation of expression with BrainSpan gene sets: Supplementary Figure 7b: `diffEx_annotate.R`
 * Comparing genotype with SNP arrays: `RNAseq_callVar.sh`, `makePlink.sh`, `matchGeno.R`
@@ -64,9 +66,9 @@ Code in `CaseControlRNA/`
 # Mouse transcriptomes
 Code in `MouseRNA/`
 * Processing: `../CaseControlRNA/SCZ_RNAseq.bash`
-* Differential expression: Figure 4a, Supplementary Figure 14. `diffEx.R`
-* Pathway analysis: Figure 4b, Supplementary Figure 15. `runPathway_FC.R` and `runPathway_STR.R`. Enrichment map created in Cytoscape. 
+* Differential expression: Figure 4a, Supplementary Figure 14, Supplementary Tables 12,13. `diffEx.R`
+* Pathway analysis: Figure 4b, Supplementary Figure 15, Supplementary Tables 14,15. `runPathway_FC.R` and `runPathway_STR.R`. Enrichment map created in Cytoscape. 
 
 # Mouse Synaptosomes
-* Pathway analysis: Supplementary Figure 17. `diffEx_testAllProt.R`
+* Pathway analysis: Supplementary Figure 17, Supplementary Table 19. `diffEx_testAllProt.R`
   
