@@ -3,7 +3,8 @@ This repo contains code used to generate results for the manuscript:
 
 **Differential DNA methylation of an enhancer at the IGF2 locus affects dopamine synthesis in patients with major psychosis***.
 Pai S., Li P., Killinger B., Marshall L., Jia P., Liao J., Petronis A., Szabó P.E., and Labrie V.
-[ Publication info ] 
+
+bioRXiv preprint: https://doi.org/10.1101/296756  
 
 # Prerequisites
 Most of the analysis uses R and BioConductor packages. In addition, the standalone
