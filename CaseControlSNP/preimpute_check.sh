@@ -11,8 +11,8 @@ KGP_REF=/home/shraddhapai/software/preimpute_check/1000GP_Phase3_combined.legend
 
 echo "* write frequency file"
 head ${inFile}.bim
-#$PLINK --bfile $inFile --freq 
+$PLINK --bfile $inFile --freq 
 echo "* running checker"
-#perl $CHECKER -b ${inFile}.bim -f plink.frq -r $KGP_REF -g -p ALL
+perl $CHECKER -b ${inFile}.bim -f plink.frq -r $KGP_REF -g -p ALL
 
 

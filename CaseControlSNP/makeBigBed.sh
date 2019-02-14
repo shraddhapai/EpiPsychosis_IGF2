@@ -10,13 +10,12 @@ outDir=`pwd`
 baseF=`basename $snpFile`
 
 head $snpFile
-###
-###oF=${outDir}/${baseF}.bed
-###cat $snpFile | awk '{print "chr"$1"\t"$4"\t"$4"\t"$2}' > $oF
-###$BEDSORT $oF $oF
-###
-####$FETCHCHROMSIZES hg19 > hg19.chrom.sizes
-###
-###$BED2BIGBED $oF hg19.chrom.sizes ${outDir}/${baseF}.bb
-###
-###
+
+oF=${outDir}/${baseF}.bed
+cat $snpFile | awk '{print "chr"$1"\t"$4"\t"$4"\t"$2}' > $oF
+$BEDSORT $oF $oF
+
+#$FETCHCHROMSIZES hg19 > hg19.chrom.sizes
+
+$BED2BIGBED $oF hg19.chrom.sizes ${outDir}/${baseF}.bb
+

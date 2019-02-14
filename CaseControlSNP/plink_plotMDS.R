@@ -107,9 +107,9 @@ comps <- combn(5,2) # plot first five PCs
 					 col=clr,cex=0.6,bty='n',
 					 main=sprintf("%s\n %s vs %s from HapMap3 genotypes",
 								  fileType,cy,cx,basename(fileType)))
-	#	rect(lim[1],lim[3],lim[2],lim[4],border=clrMap[[nm]],lty=3,
-#			 lwd=2)
-#		limclr <- c(limclr, clrMap[[nm]])
+###		rect(lim[1],lim[3],lim[2],lim[4],border=clrMap[[nm]],lty=3,
+###			 lwd=2)
+###		limclr <- c(limclr, clrMap[[nm]])
 			} else {
 				points(y[,cx],y[,cy],col=clr,cex=0.6)
 			}

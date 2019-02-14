@@ -15,6 +15,4 @@ for chrom in "${chrSet[@]}"; do
 	echo $chrom
 	$PLINK --bfile $inFile --chr $chrom --recode vcf --out ${outF}_chr${chrom}
 	vcf-sort ${outF}_chr${chrom}.vcf | $BGZIP -c > ${outF}_chr${chrom}.vcf.gz
-	
-	
 done
