@@ -25,7 +25,7 @@ require(ggplot2)
 
 dt <- format(Sys.Date(),"%y%m%d")
 
-### Prepare expression data - run once.
+###### Prepare expression data - run once.
 ###bsFile <- "/Users/shraddhapai/Google Drive/genome_annotation/BrainSpan/GSE25219-GPL5175-ExprSet.Rdata"
 ###cat("* Loading BrainSpan\n")
 ###load(bsFile)

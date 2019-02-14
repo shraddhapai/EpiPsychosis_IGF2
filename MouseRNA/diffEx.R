@@ -159,8 +159,6 @@ plotGene(logcpm,igf2,sprintf("%s/igf2.pdf",outDir))
 if (gpType=="STR") {
 	browser()
 }
-
-
 }
 
 runDiffEx("FX")
