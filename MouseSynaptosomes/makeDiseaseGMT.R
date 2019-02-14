@@ -1,3 +1,4 @@
+#' write pathway gmt file for disease pathways
 
 ###inFile <- "~/Epigenetics/NARSAD/anno/MGI_Geno_DiseaseDO_C57BL6.txt"
 ###dat <- read.delim(inFile,sep="\t",h=F,as.is=T)

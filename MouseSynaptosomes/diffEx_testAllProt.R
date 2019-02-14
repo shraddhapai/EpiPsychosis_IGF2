@@ -2,6 +2,9 @@
 rm(list=ls())
 require(org.Mm.eg.db)
 
+#' Pathway ORA for synaptosomal proteins relative to all others in proteome
+#' Test to ensure that synaptosomal enrichment worked.
+
 datFile <- "/home/shraddhapai/Epigenetics/NARSAD/output_files/MouseSynaptosomes/Protein_lists_for_pathway_analysis.txt"
 
 # prepare data

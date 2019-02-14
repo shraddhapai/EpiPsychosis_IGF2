@@ -5,11 +5,8 @@ require(org.Mm.eg.db)
 
 gmtFile <- "/home/shraddhapai/Epigenetics/NARSAD/anno/Mouse_GOBP_AllPathways_no_GO_iea_August_01_2018_entrezgene.gmt"
 gsea <- "/home/shraddhapai/software/gsea-3.0.jar"
-
 datFile <- "/home/shraddhapai/Epigenetics/NARSAD/output_files/MouseSynaptosomes/Protein_lists_for_pathway_analysis.txt"
-
 scz_genes <- "/home/shraddhapai/Epigenetics/NARSAD/output_files/MouseSynaptosomes/pr7b00422_si_005_valesquez et al 2017.txt"
-
 mm2hsFile <- "/home/shraddhapai/Epigenetics/NARSAD/output_files/MouseSynaptosomes/HOM_MouseHumanSequence.rpt.txt"
 
 # prepare data
@@ -85,7 +82,6 @@ for (k in scz) {
 		out <- c(out, sub("Gname=","",x[idx]))
 	}
 }
-
 
 y <- merge(x=dat,y=anno,by="Accession")
 y <- y[,c("symbol","Significance")]
