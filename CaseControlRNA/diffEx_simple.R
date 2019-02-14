@@ -58,9 +58,6 @@ cibersort_output <- read.delim(cibOutFile,sep="\t",h=T,as.is=T)
 covar_ciber <- cbind(covar,cibersort_output)
 # -------
 pheno <- covar_ciber 
-#idx <- which(pheno$neurons < 0.45)
-#pheno <- pheno[-idx,]
-#y <- y[,-idx]
 
 geneFile <- "/Users/shraddhapai/Documents/Research/Epigenetics/NARSAD2014/anno/gencode.v26.annotation.gtf.geneids_chroms.txt"
 genedef<- read.delim(geneFile,sep="\t",h=F,as.is=T)
@@ -115,48 +112,8 @@ cat("Running GSEA\n")
 print(gsea_cmd)
 system(gsea_cmd) # run GSEApreranked
 
-cat("Read GSEA results\n")
-gseaDir <- sprintf("%s/%s",outDir,
-	dir(path=outDir,pattern="ccRNAseq")[1])
-posFile <- dir(gseaDir,pattern="gsea_report_for_na_pos")
-posFile <- posFile[grep("xls",posFile)]
-posFile <- sprintf("%s/%s",gseaDir,posFile)
-
-negFile <- dir(gseaDir,pattern="gsea_report_for_na_neg")
-negFile <- negFile[grep("xls",negFile)]
-negFile <- sprintf("%s/%s",gseaDir,negFile)
-
-upreg <- read.delim(posFile,sep="\t",h=T,as.is=T)
-downreg <- read.delim(negFile,sep="\t",h=T,as.is=T)
 
 
-#### --------------------------
-#### plot IGF2 RNA by methylation
-###.plotByIGF2M <- function(gn) {
-###	x <- reshape2::melt(cpms[which(gene_names==gn)[1],,drop=F])
-###	colnames(x)[2] <- "ID"
-###	x <- x[,-1]
-###	x <- merge(x=x,y=covar,by="ID")
-###	x$GROUP <- factor(x$GROUP, levels=c("DISEASE","CTRL"))
-###	x$DISEASE <- factor(x$DISEASE,levels=c("CTRL","SCZ","BIPOL"))
-###	x$igf2meth <- factor(x$igf2meth,levels=c("l","h"))
-###	p <- ggplot(x,aes(x=GROUP,y=value))
-###	p <- p+geom_boxplot(aes(colour=igf2meth))+ggtitle(gn)
-###	p <- p + geom_point(position=position_dodge(width=0.75),
-###			aes(colour=igf2meth,group=igf2meth),cex=0.5)
-###	p <- p+ylab("log-CPM")
-###	print(table(x[,c("DISEASE","igf2meth")]))
-###	# explain IGF2 transcription as function of IGF2 methylation, group,
-###	# interaction term
-###	fit <- lm(value~1+igf2meth+GROUP+igf2meth*GROUP,data=x)
-###	print(summary(fit))
-###	print(p)
-###}
-###cpms <- cpm(y,log=TRUE)
-###gene_names <- lrt1$V6
-###.plotByIGF2M("IGF2")
-
-# run gsea
 
 
 

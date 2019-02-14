@@ -12,7 +12,7 @@ genoFile=/home/shraddhapai/Epigenetics/NARSAD/output_files/CaseControlSNP/final_
 #$PLINK --bfile $genoFile --make-bed --out tmp
 #$PLINK --bfile tmp --extract range set-ranges_geno.txt --recode A-transpose --out ${genoFile}.rnamatch
 
-for  cur in ${vcfDir}/CTRL_86*.vcf; do
+for  cur in ${vcfDir}/*.vcf; do
 	# create set-range
 	echo `basename $cur`
 	$PLINK --vcf $cur  --extract range set-ranges_rna.txt --recode A-transpose --out ${cur}.plink
